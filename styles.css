@@ -39,15 +39,98 @@ body {
 }
 
 #correctCountDisplay {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    position: relative;
+    top: -400px;
     background-color: #333;
     color: white;
     padding: 5px;
     font-size: 16px;
 }
-  
+
+
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    width: 300px;
+
+}
+
+#email {
+    width: 200px;
+    height: 40px;
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 10px;
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+}
+
+#email::placeholder {
+    text-align: center;
+    color: #6f6f6f;
+}
+
+#number {
+    width: 200px;
+    height: 40px;
+    margin-top: 10px;
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 10px;
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+}
+
+#number::placeholder {
+    text-align: center;
+    color: #6f6f6f;
+}
+
+#sendButton {
+    width: 60px;
+    height: 40px;
+    margin-top: 10px;
+    background-color: rgb(57, 132, 179);
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 10px;
+    border: 1px solid rgb(212, 212, 212);
+    cursor: pointer;
+}
+
+#sendButton:hover {
+    background-color: rgb(231, 91, 91);
+}
+
+#sendButton:active {
+    background-color: rgb(231, 91, 91);
+    width: 58px;
+    height: 38px;
+}
+
+#idnumber {
+    display: none;
+    margin-bottom: 100px;
+    white-space: nowrap;
+    border-right: 4px solid;
+    width: 14ch;
+    font-family: Arial, Helvetica, sans-serif;
+    animation: typing 2s steps(12), blink .5s infinite step-end alternate;
+    overflow: hidden;
+}
+
+@keyframes typing {
+    from { width: 0 }
+}
+
+@keyframes blink {
+    50% { border-color: transparent }
+}
+   
 
 
 

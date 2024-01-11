@@ -38,8 +38,34 @@ function initializeButtonSet(buttonSet, buttonSetNames) {
 function updateCorrectCountDisplay() {
     let correctCountDisplay = document.getElementById("correctCountDisplay");
     correctCountDisplay.textContent = "Correct: " + correctCount;
+    if (correctCount >= 8) {
+        generateRandomCode(); // Generar el código aleatorio
+        document.getElementById("randomIdNumber").style.display = "block";
+    }
 }
 
+function generateRandomCode() {
+    // Obtener el elemento span donde se mostrará el código
+    let randomIdNumberSpan = document.getElementById("randomIdNumber");
+
+    // Generar las dos primeras cifras (80)
+    let code = "80";
+
+    // Obtener la fecha actual
+    let currentDate = new Date();
+    // Obtener el día actual como cadena con dos dígitos
+    let day = currentDate.getDate().toString().padStart(2, '0');
+    // Agregar las dos siguientes cifras (día)
+    code += day;
+
+    // Generar las dos últimas cifras aleatorias
+    let randomDigits = Math.floor(Math.random() * 100).toString().padStart(2, '0');
+    // Agregar las dos últimas cifras aleatorias
+    code += randomDigits;
+
+    // Mostrar el código generado en el span
+    randomIdNumberSpan.textContent = code;
+}
 // Array con los nombres de los botones y sus correspondientes nombres completos para cada set
 let buttonSets = {
     set1: { buttons: ["oneLeft", "oneRight"], names: { "oneLeft": "left", "oneRight": "right" } },
@@ -65,17 +91,17 @@ for (let setName in buttonSets) {
 // Agrega un elemento para mostrar el contador de aciertos
 let correctCountDisplay = document.createElement("div");
 correctCountDisplay.id = "correctCountDisplay";
-document.body.appendChild(correctCountDisplay);
+contactForm.appendChild(correctCountDisplay);
 
 function enviarFormulario() {
     // Obtiene los valores del formulario
     var email = document.getElementById("email").value;
-    var codigo = document.getElementById("codigo").value;
+    var number = document.getElementById("number").value;
 
     // Llama a Email.js para enviar el correo
     emailjs.send("service_vr5yf1e", "template_wauglvg", {
         to_email: email,
-        codigo: codigo
+        number: number
     })
     .then(function(response) {
         console.log('Correo enviado con éxito', response);
@@ -85,3 +111,9 @@ function enviarFormulario() {
         // Puedes manejar errores y mostrar un mensaje al usuario si es necesario
     });
 }
+
+let sendButton = document.getElementById("sendButton");
+sendButton.addEventListener("click", function(){
+    document.getElementById("email").value = "";
+    document.getElementById("number").value = "";
+})
