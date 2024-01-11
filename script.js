@@ -1,21 +1,44 @@
 
 let correctCount = 0; // Variable para contar los aciertos
+let totalSetsPlayed = 0; // Variable para contar los sets jugados
+let correctCountDisplay = document.getElementById("correctCountDisplay");
+let totalSetsPlayedDisplay = document.getElementById("totalSetsPlayedDisplay");
+
+correctCountDisplay.textContent = "Correct: 0";
+totalSetsPlayedDisplay.textContent = "Total Sets Played: 0";
+
+function updateTotalSetsPlayedDisplay() {
+    totalSetsPlayedDisplay.textContent = "Total Sets Played: " + totalSetsPlayed;
+}
+
 
 function initializeButtonSet(buttonSet, buttonSetNames) {
+    
     // Selecciona aleatoriamente un botón para el set
     let correctButton = buttonSet[Math.floor(Math.random() * buttonSet.length)];
+    console.log(correctButton);
 
     // Agrega un evento click a cada botón del set
     buttonSet.forEach(function (id) {
+        
         let button = document.getElementById(id);
         button.addEventListener("click", function () {
+            
+            // Incrementa el contador de sets jugados
+            totalSetsPlayed++;
+
+            // Actualiza el contador de sets jugados en pantalla
+            updateTotalSetsPlayedDisplay();
+
             // Comprueba si el botón clicado es el correcto
             if (id === correctButton) {
                 button.classList.add("correct");
                 correctCount++; // Incrementa el contador de aciertos
+                
                 let otherButtonId = buttonSet.find(btnId => btnId !== id);
                 let otherButton = document.getElementById(otherButtonId);
                 otherButton.style.opacity = 0.26;
+
             } else {
                 button.classList.add("incorrect");
                 let otherButtonId = buttonSet.find(btnId => btnId !== id);
@@ -25,7 +48,7 @@ function initializeButtonSet(buttonSet, buttonSetNames) {
 
             // Deshabilita los botones después de la selección
             buttonSet.forEach(function (buttonId) {
-                document.getElementById(buttonId).disabled = true;
+            document.getElementById(buttonId).disabled = true;
             });
 
             // Actualiza el contador de aciertos en pantalla
@@ -35,31 +58,47 @@ function initializeButtonSet(buttonSet, buttonSetNames) {
     });
 }
 
+
+
 function updateCorrectCountDisplay() {
-    let correctCountDisplay = document.getElementById("correctCountDisplay");
     correctCountDisplay.textContent = "Correct: " + correctCount;
-    if (correctCount >= 8) {
+    if (correctCount === 8 && totalSetsPlayed === 12 || correctCount === 9 && totalSetsPlayed === 12 || correctCount === 10 && totalSetsPlayed === 12 || correctCount === 11 && totalSetsPlayed === 12 || correctCount === 12 && totalSetsPlayed === 12) {
         generateRandomCode(); // Generar el código aleatorio
-        document.getElementById("randomIdNumber").style.display = "block";
+        document.getElementById("idNumber").style.display = "block";
     }
 }
+
 
 function generateRandomCode() {
     // Obtener el elemento span donde se mostrará el código
     let randomIdNumberSpan = document.getElementById("randomIdNumber");
 
-    // Generar las dos primeras cifras (80)
-    let code = "80";
+     // Generar las dos primeras cifras según el número de aciertos
+     let code = "";
+     if (correctCount == 8) {
+        code = "80";
+     } else if (correctCount == 9) {
+        code = "90";
+    } else if (correctCount == 10) {
+        code = "10";
+    } else if (correctCount == 11) {
+        code = "11";
+    } else if (correctCount == 12) {
+        code = "12";
+     }
 
     // Obtener la fecha actual
     let currentDate = new Date();
+
     // Obtener el día actual como cadena con dos dígitos
     let day = currentDate.getDate().toString().padStart(2, '0');
+
     // Agregar las dos siguientes cifras (día)
     code += day;
 
     // Generar las dos últimas cifras aleatorias
     let randomDigits = Math.floor(Math.random() * 100).toString().padStart(2, '0');
+
     // Agregar las dos últimas cifras aleatorias
     code += randomDigits;
 
@@ -87,11 +126,6 @@ let buttonSets = {
 for (let setName in buttonSets) {
     initializeButtonSet(buttonSets[setName].buttons, buttonSets[setName].names);
 }
-
-// Agrega un elemento para mostrar el contador de aciertos
-let correctCountDisplay = document.createElement("div");
-correctCountDisplay.id = "correctCountDisplay";
-contactForm.appendChild(correctCountDisplay);
 
 function enviarFormulario() {
     // Obtiene los valores del formulario

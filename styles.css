@@ -39,19 +39,23 @@ body {
 }
 
 #correctCountDisplay {
-    position: relative;
-    top: -400px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
     background-color: #333;
     color: white;
-    padding: 5px;
     font-size: 16px;
+    margin-bottom: 100px;
+    border-radius: 10px;
 }
 
 
 #contactForm {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     margin-left: 20px;
     width: 300px;
@@ -112,7 +116,7 @@ body {
     height: 38px;
 }
 
-#idnumber {
+#idNumber {
     display: none;
     margin-bottom: 100px;
     white-space: nowrap;

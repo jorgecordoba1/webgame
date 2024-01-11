@@ -38,15 +38,18 @@
     </div>
     
     <form id="contactForm">
-        <p id="idnumber">Number: <span id="randomIdNumber"></span> </p>
+        <div id="correctCountDisplay"></div>
+        <p id="idNumber">Number: <span id="randomIdNumber"></span></p>
         <label for="email">
         <input type="email" id="email" name="email" placeholder="Email" required></label>
 
         <label for="number">
-        <input type="text" id="number" name="number" placeholder="Number" value="0" required></label>
+        <input type="text" id="number" name="number" placeholder="Number" required></label>
         
         <button id="sendButton" type="button" onclick="enviarFormulario()">Send</button>
     </form>
+
+    <div id="totalSetsPlayedDisplay"></div>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script type="text/javascript">(function(){emailjs.init("DPywodmQgPjXftCXV");})();</script>
