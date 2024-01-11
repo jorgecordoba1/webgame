@@ -118,13 +118,7 @@ body {
 
 #idNumber {
     display: none;
-    margin-bottom: 100px;
-    white-space: nowrap;
-    border-right: 4px solid;
-    width: 14ch;
-    font-family: Arial, Helvetica, sans-serif;
-    animation: typing 2s steps(12), blink .5s infinite step-end alternate;
-    overflow: hidden;
+    
 }
 
 @keyframes typing {
@@ -133,6 +127,36 @@ body {
 
 @keyframes blink {
     50% { border-color: transparent }
+}
+
+#totalSetsPlayedDisplay {
+    display: none;
+}
+
+#resetButton {
+    width: 200px;
+    height: 40px;
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 10px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 100px;
+    transition: background-color 0.6s ease-in-out;
+    
+}
+
+#resetButton:hover {
+    background-color: rgb(231, 91, 91);
+    transition: background-color 0.6s ease-in-out;
+}
+
+#resetButton:active {
+    background-color: rgb(231, 91, 91);
+    width: 198px;
+    height: 38px;
+    margin-top: 101px;
 }
    
 

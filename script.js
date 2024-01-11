@@ -4,6 +4,17 @@ let totalSetsPlayed = 0; // Variable para contar los sets jugados
 let correctCountDisplay = document.getElementById("correctCountDisplay");
 let totalSetsPlayedDisplay = document.getElementById("totalSetsPlayedDisplay");
 
+let numberInput = document.getElementById("number");
+numberInput.disabled = true;
+numberInput.style.display = "none";
+
+let emailInput = document.getElementById("email");
+emailInput.style.display = "none";
+
+let sendButton = document.getElementById("sendButton")
+sendButton.style.display = "none";
+sendButton.disabled = true;
+
 correctCountDisplay.textContent = "Correct: 0";
 totalSetsPlayedDisplay.textContent = "Total Sets Played: 0";
 
@@ -16,7 +27,6 @@ function initializeButtonSet(buttonSet, buttonSetNames) {
     
     // Selecciona aleatoriamente un botón para el set
     let correctButton = buttonSet[Math.floor(Math.random() * buttonSet.length)];
-    console.log(correctButton);
 
     // Agrega un evento click a cada botón del set
     buttonSet.forEach(function (id) {
@@ -64,7 +74,9 @@ function updateCorrectCountDisplay() {
     correctCountDisplay.textContent = "Correct: " + correctCount;
     if (correctCount === 8 && totalSetsPlayed === 12 || correctCount === 9 && totalSetsPlayed === 12 || correctCount === 10 && totalSetsPlayed === 12 || correctCount === 11 && totalSetsPlayed === 12 || correctCount === 12 && totalSetsPlayed === 12) {
         generateRandomCode(); // Generar el código aleatorio
-        document.getElementById("idNumber").style.display = "block";
+        sendButton.style.display = "block";
+        emailInput.style.display = "block";
+        numberInput.style.display = "block";
     }
 }
 
@@ -102,9 +114,25 @@ function generateRandomCode() {
     // Agregar las dos últimas cifras aleatorias
     code += randomDigits;
 
+    emailInput.disabled = false;
+    
+     // Agrega un evento de escucha para el campo de correo electrónico
+    emailInput.addEventListener("input", function () {
+    // Valida el formato del correo electrónico
+    let isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value);
+    
+    // Habilita o deshabilita el botón "Send" en función de la validez del correo electrónico
+    sendButton.disabled = false;
+}); 
+    
+    numberInput.value = code;
+    
+    
     // Mostrar el código generado en el span
     randomIdNumberSpan.textContent = code;
 }
+
+
 // Array con los nombres de los botones y sus correspondientes nombres completos para cada set
 let buttonSets = {
     set1: { buttons: ["oneLeft", "oneRight"], names: { "oneLeft": "left", "oneRight": "right" } },
@@ -146,8 +174,10 @@ function enviarFormulario() {
     });
 }
 
-let sendButton = document.getElementById("sendButton");
+;
+
 sendButton.addEventListener("click", function(){
     document.getElementById("email").value = "";
     document.getElementById("number").value = "";
 })
+
