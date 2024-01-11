@@ -1,0 +1,19 @@
+{
+  "name": "002web",
+  "version": "1.0.0",
+  "description": "Online simple game",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jorgecordoba1/webgame.git"
+  },
+  "author": "Jorge Cordoba",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jorgecordoba1/webgame/issues"
+  },
+  "homepage": "https://github.com/jorgecordoba1/webgame#readme"
+}
