@@ -3,14 +3,31 @@
     margin: 0;
     padding: 0;
 }
+
 body {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#mobileContainer {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     gap: 5px;
-    width: 98vw;
-    height: 98vh;
 }
+
+#twoSides {
+    display: flex;
+}
+
+#verde {
+    color: rgb(46, 204, 113);
+}
+
+#roja {
+    color: rgb(231, 76, 60);
+}
+
 
 .tile {
     width: 50px;
@@ -47,7 +64,8 @@ body {
     height: 40px;
     background-color: #333;
     color: white;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 800;
     margin-bottom: 100px;
     border-radius: 10px;
 }
@@ -97,7 +115,7 @@ body {
     width: 60px;
     height: 40px;
     margin-top: 10px;
-    background-color: rgb(57, 132, 179);
+    background-color: rgb(231, 91, 91);
     color: white;
     font-weight: 700;
     font-size: 14px;
@@ -107,11 +125,11 @@ body {
 }
 
 #sendButton:hover {
-    background-color: rgb(231, 91, 91);
+    background-color: rgb(46, 204, 113);
 }
 
 #sendButton:active {
-    background-color: rgb(231, 91, 91);
+    background-color: rgb(46, 204, 113);
     width: 58px;
     height: 38px;
 }
@@ -119,14 +137,6 @@ body {
 #idNumber {
     display: none;
     
-}
-
-@keyframes typing {
-    from { width: 0 }
-}
-
-@keyframes blink {
-    50% { border-color: transparent }
 }
 
 #totalSetsPlayedDisplay {
@@ -157,6 +167,63 @@ body {
     width: 198px;
     height: 38px;
     margin-top: 101px;
+}
+
+#inicio {
+    position: absolute;
+    top: 60px;
+    left: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 300px;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 18px;
+    line-height: 24px;
+    text-align:left;
+    color: rgb(41, 41, 41);
+    font-weight: 400;
+    margin-bottom: 80px;
+    margin-right: 80px;
+}
+
+.intentar {
+    display: none;
+    width: 300px;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 18px;
+    line-height: 24px;
+    text-align:left;
+    color: rgb(0, 0, 0);
+    font-weight: 800;
+    margin-bottom: 0px;
+    margin-left: 100px;
+}
+
+.felicitaciones {
+    display: none;
+    width: 300px;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 18px;
+    line-height: 24px;
+    text-align:left;
+    color: rgb(0, 0, 0);
+    font-weight: 800;
+    margin-bottom: 80px;
+    margin-left: 100px;
+}
+
+#mensaje1 {
+    display: none;
+    width: 300px;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 18px;
+    line-height: 24px;
+    text-align:left;
+    color: rgb(41, 41, 41);
+    font-weight: 400;
+    margin-bottom: 20px;
+    margin-left: 100px;
 }
    
 

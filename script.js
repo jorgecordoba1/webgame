@@ -15,7 +15,7 @@ let sendButton = document.getElementById("sendButton")
 sendButton.style.display = "none";
 sendButton.disabled = true;
 
-correctCountDisplay.textContent = "Correct: 0";
+correctCountDisplay.textContent = "0";
 totalSetsPlayedDisplay.textContent = "Total Sets Played: 0";
 
 function updateTotalSetsPlayedDisplay() {
@@ -67,13 +67,14 @@ function initializeButtonSet(buttonSet, buttonSetNames) {
         });
     });
 }
-
-
-
 function updateCorrectCountDisplay() {
-    correctCountDisplay.textContent = "Correct: " + correctCount;
-    if (correctCount === 8 && totalSetsPlayed === 12 || correctCount === 9 && totalSetsPlayed === 12 || correctCount === 10 && totalSetsPlayed === 12 || correctCount === 11 && totalSetsPlayed === 12 || correctCount === 12 && totalSetsPlayed === 12) {
+    correctCountDisplay.textContent = "" + correctCount;
+    
+    if (correctCount < 9 && totalSetsPlayed === 12) {
+        document.querySelector(".intentar").style.display = "block"
+    } else if (correctCount === 9 && totalSetsPlayed === 12 || correctCount === 10 && totalSetsPlayed === 12 || correctCount === 11 && totalSetsPlayed === 12 || correctCount === 12 && totalSetsPlayed === 12) {
         generateRandomCode(); // Generar el código aleatorio
+        document.querySelector(".felicitaciones").style.display = "block"
         sendButton.style.display = "block";
         emailInput.style.display = "block";
         numberInput.style.display = "block";
@@ -87,9 +88,7 @@ function generateRandomCode() {
 
      // Generar las dos primeras cifras según el número de aciertos
      let code = "";
-     if (correctCount == 8) {
-        code = "80";
-     } else if (correctCount == 9) {
+     if (correctCount == 9) {
         code = "90";
     } else if (correctCount == 10) {
         code = "10";
@@ -166,18 +165,15 @@ function enviarFormulario() {
         number: number
     })
     .then(function(response) {
-        console.log('Correo enviado con éxito', response);
+        ducument.getElementById("mensaje1").style.display = "block";
         // Puedes agregar aquí un mensaje de éxito o redirigir a una página de agradecimiento
     }, function(error) {
         console.log('Error al enviar el correo', error);
         // Puedes manejar errores y mostrar un mensaje al usuario si es necesario
     });
-}
-
-;
+};
 
 sendButton.addEventListener("click", function(){
     document.getElementById("email").value = "";
     document.getElementById("number").value = "";
-})
-
+});
