@@ -15,7 +15,7 @@ let sendButton = document.getElementById("sendButton")
 sendButton.style.display = "none";
 sendButton.disabled = true;
 
-correctCountDisplay.textContent = "0";
+correctCountDisplay.textContent = "Puntos: 0";
 totalSetsPlayedDisplay.textContent = "Total Sets Played: 0";
 
 function updateTotalSetsPlayedDisplay() {
@@ -27,7 +27,7 @@ function initializeButtonSet(buttonSet, buttonSetNames) {
     
     // Selecciona aleatoriamente un botón para el set
     let correctButton = buttonSet[Math.floor(Math.random() * buttonSet.length)];
-
+    console.log(correctButton);
     // Agrega un evento click a cada botón del set
     buttonSet.forEach(function (id) {
         
@@ -68,16 +68,16 @@ function initializeButtonSet(buttonSet, buttonSetNames) {
     });
 }
 function updateCorrectCountDisplay() {
-    correctCountDisplay.textContent = "" + correctCount;
+    correctCountDisplay.textContent = "Puntos: " + correctCount;
     
     if (correctCount < 9 && totalSetsPlayed === 12) {
         document.querySelector(".intentar").style.display = "block"
     } else if (correctCount === 9 && totalSetsPlayed === 12 || correctCount === 10 && totalSetsPlayed === 12 || correctCount === 11 && totalSetsPlayed === 12 || correctCount === 12 && totalSetsPlayed === 12) {
         generateRandomCode(); // Generar el código aleatorio
         document.querySelector(".felicitaciones").style.display = "block"
-        sendButton.style.display = "block";
-        emailInput.style.display = "block";
-        numberInput.style.display = "block";
+        sendButton.style.display = "none";
+        emailInput.style.display = "none";
+        numberInput.style.display = "none";
     }
 }
 

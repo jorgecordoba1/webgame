@@ -1,79 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
-</head>
-<body>
-    <div id="mobileContainer">
-        <div id="inicio">
-            <p>Cada fila tiene 2 casillas, una <span id="verde">verde</span>,  y una <span id="roja">roja</span>. <br><br><br>Consigue 9 <span id="verde">verdes</span> o más y participa en nuestro sorteo semanal.</p>
-        </div>\
-        <div id="twoSides">
-            <div id="leftSide">
-                <button class="tile" id="oneLeft"></button>
-                <button class="tile" id="twoLeft"></button>
-                <button class="tile" id="threeLeft"></button>
-                <button class="tile" id="fourLeft"></button>
-                <button class="tile" id="fiveLeft"></button>
-                <button class="tile" id="sixLeft"></button>
-                <button class="tile" id="sevenLeft"></button>
-                <button class="tile" id="eightLeft"></button>
-                <button class="tile" id="nineLeft"></button>
-                <button class="tile" id="tenLeft"></button>
-                <button class="tile" id="elevenLeft"></button>
-                <button class="tile" id="twelveLeft"></button>
-            </div>
-    
-            <div id="rightSide">
-                <button class="tile" id="oneRight"></button>
-                <button class="tile" id="twoRight"></button>
-                <button class="tile" id="threeRight"></button>
-                <button class="tile" id="fourRight"></button>
-                <button class="tile" id="fiveRight"></button>
-                <button class="tile" id="sixRight"></button>
-                <button class="tile" id="sevenRight"></button>
-                <button class="tile" id="eightRight"></button>
-                <button class="tile" id="nineRight"></button>
-                <button class="tile" id="tenRight"></button>
-                <button class="tile" id="elevenRight"></button>
-                <button class="tile" id="twelveRight"></button>
-            </div>
-        </div>
-        
-        <form id="contactForm">
-            <p class="intentar">Vuelve a intentarlo!</p>
-            <p class="felicitaciones">Felicitaciones!<br> Lo conseguiste!!!</p>
-            <div id="correctCountDisplay"></div>
-            <p id="idNumber">Número: <span id="randomIdNumber"></span></p>
-            <label for="email">
-            <input type="email" id="email" name="email" placeholder="Email" required></label>
 
-            <label for="number">
-            <input type="text" id="number" name="number" placeholder="Win for a code" required></label>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Document</title>
+    </head>
+
+
+    <body>
+
+        <div id="mobileContainer">
             
-            <button id="sendButton" type="button" onclick="enviarFormulario()">Enviar</button>
-            <p id="mensaje1">Gracias, en un momento te enviaremos un correo de verificación</p>
-            <button id="resetButton" onclick="location.reload()">Volver a jugar</button>
-        </form>
-        <div id="texto">
+            <div id="inicio">
+
+                <p>Cada fila tiene dos casillas, <br>una correcta (<span id="verde">verde</span>), y una incorrecta (<span id="roja">roja</span>). <br>Cada casilla correcta te da un punto. <br><br><!---Consigue 9 <span id="verde">verdes</span> o más y participa en nuestro sorteo semanal.</p>-->
+                                                                                                                                         
+
+            </div>
         
-        <!--<br><br>
-        <p class="info">El sorteo se realizará entre quienes hayan conseguido la mayor cantidad de aciertos.</p>
-        <br><br>
-        <p class="info">Puedes jugar todas las veces que quieras, participarás con la cantidad de aciertos más alta que hayas conseguido.</p>
-        <br><br>--> 
+
+            <div id="threeSides">
+
+                <div id="leftSide">
+                    <button class="tile" id="oneLeft"></button>
+                    <button class="tile" id="twoLeft"></button>
+                    <button class="tile" id="threeLeft"></button>
+                    <button class="tile" id="fourLeft"></button>
+                    <button class="tile" id="fiveLeft"></button>
+                    <button class="tile" id="sixLeft"></button>
+                    <button class="tile" id="sevenLeft"></button>
+                    <button class="tile" id="eightLeft"></button>
+                    <button class="tile" id="nineLeft"></button>
+                    <button class="tile" id="tenLeft"></button>
+                    <button class="tile" id="elevenLeft"></button>
+                    <button class="tile" id="twelveLeft"></button>
+                </div>
+        
+            
+                <div id="rightSide">
+                    <button class="tile" id="oneRight"></button>
+                    <button class="tile" id="twoRight"></button>
+                    <button class="tile" id="threeRight"></button>
+                    <button class="tile" id="fourRight"></button>
+                    <button class="tile" id="fiveRight"></button>
+                    <button class="tile" id="sixRight"></button>
+                    <button class="tile" id="sevenRight"></button>
+                    <button class="tile" id="eightRight"></button>
+                    <button class="tile" id="nineRight"></button>
+                    <button class="tile" id="tenRight"></button>
+                    <button class="tile" id="elevenRight"></button>
+                    <button class="tile" id="twelveRight"></button>
+                </div>
+
+                <div id="otherSide">
+
+                    <button id="resetButton" onclick="location.reload()">Volver a jugar</button>
+                    <p class="intentar">Vuelve a intentarlo!</p>
+                    <p class="felicitaciones">Felicitaciones!<br>Lo conseguiste!</p>
+                
+                </div>
+
+            </div>
+
+            <div id="correctCountDisplay"></div>
+            
+            <form id="contactForm">
+                
+                <p id="idNumber">Número: <span id="randomIdNumber"></span></p>
+                <label for="email">
+                <input type="email" id="email" name="email" placeholder="Email" required></label>
+
+                <label for="number">
+                <input type="text" id="number" name="number" placeholder="Win for a code" required></label>
+                
+                <button id="sendButton" type="button" onclick="enviarFormulario()">Enviar</button>
+                <p id="mensaje1">Gracias, en un momento te enviaremos un correo de verificación</p>
+                
+            </form>
+        
+            <!--
+            <div id="texto">
+            
+            <br><br>
+            <p class="info">El sorteo se realizará entre quienes hayan conseguido la mayor cantidad de aciertos.</p>
+            <br><br>
+            <p class="info">Puedes jugar todas las veces que quieras, participarás con la cantidad de aciertos más alta que hayas conseguido.</p>
+            <br><br>--> 
+        
+        </div>
+            
+        <div id="totalSetsPlayedDisplay">  
         </div>
 
-        <p></p>
 
-        <div id="totalSetsPlayedDisplay"></div>
-    </div>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script type="text/javascript">(function(){emailjs.init("DPywodmQgPjXftCXV");})();</script>
+        <script src="script.js"></script>
+    
+    </body>
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script type="text/javascript">(function(){emailjs.init("DPywodmQgPjXftCXV");})();</script>
-<script src="script.js"></script>
-</body>
 </html>
