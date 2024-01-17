@@ -67,12 +67,13 @@ function initializeButtonSet(buttonSet, buttonSetNames) {
         });
     });
 }
+
 function updateCorrectCountDisplay() {
     correctCountDisplay.textContent = "Puntos: " + correctCount;
     
-    if (correctCount < 9 && totalSetsPlayed === 12) {
+    if (correctCount < 8 && totalSetsPlayed === 8) {
         document.querySelector(".intentar").style.display = "block"
-    } else if (correctCount === 9 && totalSetsPlayed === 10 || correctCount === 10 && totalSetsPlayed === 10) /*|| correctCount === 11 && totalSetsPlayed === 12 || correctCount === 12 && totalSetsPlayed === 12)*/ {
+    } else if (correctCount === 8 && totalSetsPlayed === 8) { /* || correctCount === 10 && totalSetsPlayed === 10 || correctCount === 11 && totalSetsPlayed === 12 || correctCount === 12 && totalSetsPlayed === 12)*/ 
         generateRandomCode(); // Generar el código aleatorio
         document.querySelector(".felicitaciones").style.display = "block"
         sendButton.style.display = "none";
@@ -88,11 +89,11 @@ function generateRandomCode() {
 
      // Generar las dos primeras cifras según el número de aciertos
      let code = "";
-     if (correctCount == 9) {
-        code = "90";
-    } else if (correctCount == 10) {
+     if (correctCount == 8) {
+        code = "80";
+    } /*else if (correctCount == 10) {
         code = "10";
-    } /*else if (correctCount == 11) {
+    } else if (correctCount == 11) {
         code = "11";
     } else if (correctCount == 12) {
         code = "12";
