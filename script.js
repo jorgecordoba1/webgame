@@ -72,7 +72,7 @@ function updateCorrectCountDisplay() {
     
     if (correctCount < 9 && totalSetsPlayed === 12) {
         document.querySelector(".intentar").style.display = "block"
-    } else if (correctCount === 9 && totalSetsPlayed === 10 || correctCount === 10 && totalSetsPlayed === 10 /*|| correctCount === 11 && totalSetsPlayed === 12 || correctCount === 12 && totalSetsPlayed === 12)*/ {
+    } else if (correctCount === 9 && totalSetsPlayed === 10 || correctCount === 10 && totalSetsPlayed === 10) /*|| correctCount === 11 && totalSetsPlayed === 12 || correctCount === 12 && totalSetsPlayed === 12)*/ {
         generateRandomCode(); // Generar el código aleatorio
         document.querySelector(".felicitaciones").style.display = "block"
         sendButton.style.display = "none";
