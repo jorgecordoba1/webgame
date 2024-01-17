@@ -166,7 +166,7 @@ function enviarFormulario() {
         number: number
     })
     .then(function(response) {
-        ducument.getElementById("mensaje1").style.display = "block";
+        document.getElementById("mensaje1").style.display = "block";
         // Puedes agregar aquí un mensaje de éxito o redirigir a una página de agradecimiento
     }, function(error) {
         console.log('Error al enviar el correo', error);
