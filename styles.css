@@ -33,13 +33,13 @@ body {
     background-color: rgb(233, 233, 233);
     cursor: pointer;
     border: 0px solid rgba(202, 202, 202, 0.53);
-    border-radius: 5px;   
+    border-radius: 5px; 
+    margin-bottom: 9px;  
 }
 
 #leftSide, #rightSide {
     display: flex;
     flex-direction: column-reverse;
-    gap: 8px;
     margin-right: 8px;
 }
 
@@ -53,26 +53,9 @@ body {
     color: white;
 }
 
-#correctCountDisplay {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    width: 200px;
-    height: 40px;
-    background-color: #333;
-    color: white;
-    font-size: 18px;
-    font-weight: 800;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-}
-
 #otherSide {
     width: 150px;
     margin-left: 10px;
-   
 }
 
 #textoInicial {
@@ -87,8 +70,8 @@ body {
 }
 
 #resetButton {
-    width: 120px;
-    height: 60px;
+    width: 150px;
+    height: 74px;
     background-color: rgba(202, 202, 202, 0.53);
     cursor: pointer;
     border: 0px solid rgba(202, 202, 202, 0.53);
@@ -97,7 +80,7 @@ body {
     color: #515151;
     font-size: 14px;
     font-weight: 700;
-    margin-top: 20px;
+    margin-top: 20px auto 0;
 }
 
 #resetButton:hover {
@@ -109,8 +92,8 @@ body {
 #resetButton:active {
     background-color: rgb(231, 91, 91);
     color: white;
-    width: 118px;
-    height: 58px;
+    width: 148px;
+    height: 72px;
 }
 
 .intentar {
@@ -135,6 +118,21 @@ body {
     margin: 40px auto 0;
 }
 
+#correctCountDisplay {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 120px;
+    height: 74px;
+    background-color: #333;
+    color: white;
+    font-size: 18px;
+    font-weight: 800;
+    margin: 300px auto 0;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
 #contactForm {
     display: flex;
     flex-direction: column;
