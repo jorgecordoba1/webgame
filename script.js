@@ -8,7 +8,7 @@ let numberInput = document.getElementById("number");
 numberInput.disabled = true;
 numberInput.style.display = "none";
 
-let emailInput = document.getElementById("email");
+let emailInput = document.getElementById("email"); 
 emailInput.style.display = "none";
 
 let sendButton = document.getElementById("sendButton")
